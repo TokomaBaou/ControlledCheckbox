@@ -12,6 +12,16 @@ export const ControlledCheckbox = () => {
     setChecked(event.target.checked);
   };
 
+  const [search, setSearch] = React.useState([]);
+
+  const onClickSearch = (e) => {
+    if (search.includes(e.target.value)) {
+      setSearch(search.filter((item) => item !== e.target.value));
+    } else {
+      setSearch([...search, e.target.value]);
+    }
+  };
+
   return (
     <>
       <Checkbox
@@ -49,7 +59,7 @@ export const ControlledCheckbox = () => {
         control={<Checkbox />}
         label="論文"
         labelPlacement="end"
-        onChange={handleChange}
+        // onChange={handleChange}
         inputProps={{ "aria-label": "controlled" }}
       />
     </>
